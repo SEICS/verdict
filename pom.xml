@@ -75,13 +75,22 @@
         <junit.version>4.12</junit.version>
         <google.guava.version>14.0.1</google.guava.version>
         <jackson.databind.version>2.6.5</jackson.databind.version>
-        <maven.java.version>1.7</maven.java.version>
-        <maven.source-plugin.version>3.0.1</maven.source-plugin.version>
-        <maven.compiler-plugin.version>3.8.0</maven.compiler-plugin.version>
-        <maven.assembly-plugin.version>3.1.0</maven.assembly-plugin.version>
-        <maven.failsafe.version>2.13</maven.failsafe.version>
-        <maven.surefire.version>2.12.4</maven.surefire.version>
-        <maven.javadoc.version>2.10.4</maven.javadoc.version>
+        <!-- <maven.java.version>1.8</maven.java.version> -->
+
+        <java.version>20</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- <maven.java.version>1.7</maven.java.version> -->
+        <maven.source-plugin.version>3.3.0</maven.source-plugin.version>
+        <!-- <maven.source-plugin.version>3.0.1</maven.source-plugin.version> -->
+        <maven.compiler-plugin.version>3.11.0</maven.compiler-plugin.version>
+        <maven.failsafe.version>3.2.2</maven.failsafe.version>
+        <!-- <maven.failsafe.version>2.13</maven.failsafe.version> -->
+        <maven.surefire.version>3.2.2</maven.surefire.version>
+        <!-- <maven.surefire.version>2.12.4</maven.surefire.version> -->
+        <maven.javadoc.version>3.6.2</maven.javadoc.version>
+        <!-- <maven.javadoc.version>2.10.4</maven.javadoc.version> -->
         <spark.version>2.2.1</spark.version>   <!-- google dataproc default version -->
         <janino.version>3.0.0</janino.version> <!-- matching version with spark 2.2.1 -->
         <skipTests>false</skipTests>
@@ -247,14 +256,17 @@
         </dependency>
         <dependency>
             <groupId>com.amazon.redshift</groupId>
-            <artifactId>redshift-jdbc41</artifactId>
-            <version>1.2.10.1009</version>
+            <artifactId>redshift-jdbc42</artifactId>
+            <version>2.1.0.9</version>
+            <!-- <artifactId>redshift-jdbc41</artifactId>
+            <version>1.2.10.1009</version> -->
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.klarna</groupId>
             <artifactId>hiverunner</artifactId>
-            <version>3.2.1</version>
+            <version>6.0.1</version>
+            <!-- <version>3.2.1</version> -->
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -356,10 +368,13 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
+                        <!-- <version>3.13.0</version> -->
                         <version>${maven.compiler-plugin.version}</version>
                         <configuration>
-                            <source>1.7</source>
-                            <target>1.7</target>
+                            <!-- <source>1.8</source>
+                            <target>1.8</target> -->
+                            <source>1.7</source> <!-- Source option 7 is no longer supported. Use 8 or later. -->
+                            <target>1.7</target> <!-- Target option 7 is no longer supported. Use 8 or later. -->
                             <excludes>
                                 <exclude>**/org/verdictdb/connection/PrestoJdbcConnection.java
                                 </exclude>
@@ -413,9 +428,12 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>${maven.compiler-plugin.version}</version>
+                        <!-- <version>3.13.0</version> -->
                         <configuration>
-                            <source>1.7</source>
-                            <target>1.7</target>
+                          <source>1.8</source>
+                          <target>1.8</target>
+                          <!-- <source>1.7</source> Source option 7 is no longer supported. Use 8 or later. -->
+                          <!-- <target>1.7</target> Target option 7 is no longer supported. Use 8 or later. -->
                         </configuration>
                     </plugin>
                     <plugin>
