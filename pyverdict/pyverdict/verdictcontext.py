@@ -22,6 +22,7 @@ from . import verdictcommon
 from .verdictexception import *
 from py4j.java_gateway import JavaGateway
 from time import sleep, time
+import numpy as np
 
 # To properly close all connections
 created_verdict_contexts = []
